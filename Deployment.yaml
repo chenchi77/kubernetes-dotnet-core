@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-web-deployment
+  labels:
+    app: dotnet-web
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: dotnet-web
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 20%
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: dotnet-web
+    spec:
+      containers:
+      - name: dotnet-web
+        image: chenchi77/dotnet-core-web:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
