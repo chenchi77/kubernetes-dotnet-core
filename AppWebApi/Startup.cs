@@ -39,10 +39,16 @@ namespace AppWebApi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger(c => 
+            {
+                c.PreSerializeFilters.Add((swaggerDoc, httpReq) => { swaggerDoc.BasePath = "/dotnet"; });
+            });
+            /*
             app.UseSwagger(c =>
             {
                 c.RouteTemplate = "swagger/{documentName}/swagger.json";
             });
+            */
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
