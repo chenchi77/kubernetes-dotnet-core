@@ -11,5 +11,5 @@ spec:
       paths:
       - path: /dotnet
         backend:
-          serviceName: dotnet-web
+          serviceName: dotnet-web-service
           servicePort: 80
