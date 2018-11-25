@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace AppWebApi.Controllers
 {
@@ -7,6 +8,12 @@ namespace AppWebApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogger<ValuesController> _logger;
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
+
         /// <summary>
         /// Get this instance.
         /// </summary>
@@ -14,6 +21,7 @@ namespace AppWebApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            _logger.LogInformation("test");
             return new string[] { "value1", "value2" };
         }
 
