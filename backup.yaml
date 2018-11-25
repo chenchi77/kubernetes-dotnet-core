@@ -27,8 +27,7 @@ spec:
         - name: varlog
           mountPath: /var/log
         - name: filebeat-config
-          mountPath: /usr/share/filebeat/filebeat.yml
-          subPath: filebeat.yml
+          mountPath: /usr/share/filebeat/
       - name: dotnet-web
         image: chenchi77/dotnet-core-web:latest
         imagePullPolicy: Always
