@@ -9,7 +9,7 @@ spec:
   - host: dev.chi
     http:
       paths:
-      - path: /dotnet-web
+      - path: /dotnet
         backend:
           serviceName: dotnet-web
           servicePort: 80
