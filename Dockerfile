@@ -18,5 +18,4 @@ EXPOSE 80
 # copy publish web files to current workdir
 COPY --from=build /app/publish ./
 # run command when container start
-CMD ["-c"]
 ENTRYPOINT ["dotnet", "AppWebApi.dll"]
