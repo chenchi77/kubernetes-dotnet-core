@@ -47,7 +47,7 @@ namespace AppWebApi
             {
                 c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
                 {
-                    swaggerDoc.BasePath = "/dotnet";
+                    swaggerDoc.BasePath = httpReq.PathBase;
                 });
             });
 
