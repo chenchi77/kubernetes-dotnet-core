@@ -24,6 +24,7 @@ spec:
       - name: dotnet-web
         image: chenchi77/dotnet-core-web:latest
         imagePullPolicy: Always
+        args: ["/Config/"]
         volumeMounts:
         - name: varlog
           mountPath: /var/log
