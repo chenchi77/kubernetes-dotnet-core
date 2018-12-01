@@ -28,7 +28,7 @@ spec:
         - name: varlog
           mountPath: /var/log
         - name: dotnet-web-config
-          mountPath: /app/Config
+          mountPath: /Config
         ports:
         - containerPort: 80
       volumes:

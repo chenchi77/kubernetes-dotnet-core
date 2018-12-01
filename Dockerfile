@@ -17,5 +17,11 @@ WORKDIR /app
 EXPOSE 80
 # copy publish web files to current workdir
 COPY --from=build /app/publish ./
+
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+RUN ln -s usr/local/bin/docker-entrypoint.sh /
+
 # run command when container start
-ENTRYPOINT ["dotnet", "AppWebApi.dll"]
+ENTRYPOINT ["docker-entrypoint.sh", "AppWebApi.dll", "/app/Config"]
+CMD ["/app/Config/"]
